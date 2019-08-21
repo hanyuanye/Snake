@@ -1,5 +1,5 @@
 //
-//  MetalCircleView.swift
+//  MetalObstacleView.swift
 //  Snake
 //
 //  Created by Hanyuan Ye on 2019-07-03.
@@ -7,11 +7,19 @@
 //
 
 import UIKit
-import Metal
 import MetalKit
+import Metal
 import simd
 
-final class MetalCircleView: BaseRenderedObjectView {
+final class MetalObstacleView: BaseRenderedObjectView {
+    
+    var points = 1
+    
+    required convenience init(metalDevice: MTLDevice, metalRenderPipelineState: MTLRenderPipelineState, metalCommandQueue: MTLCommandQueue, vertexBuffer: MTLBuffer!, points: Int) {
+        self.init(metalDevice: metalDevice, metalRenderPipelineState: metalRenderPipelineState, metalCommandQueue: metalCommandQueue, vertexBuffer: vertexBuffer)
+        
+        self.points = points
+    }
     
     required init(metalDevice: MTLDevice, metalRenderPipelineState: MTLRenderPipelineState, metalCommandQueue: MTLCommandQueue, vertexBuffer: MTLBuffer!) {
         super.init(metalDevice: metalDevice,
@@ -26,15 +34,23 @@ final class MetalCircleView: BaseRenderedObjectView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        
+    }
+    
+    func decrementPoints() {
+        points -= 1
+    }
+    
     func animateDestroy() {
         self.moveX(to: -500)
         self.setNeedsDisplay()
     }
 }
 
-extension MetalCircleView: MTKViewDelegate {
+extension MetalObstacleView: MTKViewDelegate {
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        print(size)
+        
     }
     
     func draw(in view: MTKView) {
@@ -54,10 +70,12 @@ extension MetalCircleView: MTKViewDelegate {
         
         /*********** Encoding the commands **************/
         renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-        renderEncoder.drawPrimitives(type: .triangleStrip, vertexStart: 0, vertexCount: 1080)
+        renderEncoder.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: 6)
         
         renderEncoder.endEncoding()
         commandBuffer.present(view.currentDrawable!)
         commandBuffer.commit()
     }
+    
+    
 }

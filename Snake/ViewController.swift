@@ -11,12 +11,18 @@ import Metal
 
 class ViewController: UIViewController {
     
-    let radius: CGFloat = 40
+    static let radius: CGFloat = 20
+    static let heightOffset: CGFloat = 300
+    
+    var isMoving = false
+    var currentHandPosition: CGFloat = 0
+    
+    var renderer: GraphicsRenderer = GraphicsRenderer()
+    var physicsEngine: PhysicsEngine? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let renderer = GraphicsRenderer()
         view.addSubview(renderer)
         
         //constraining to window
@@ -25,10 +31,25 @@ class ViewController: UIViewController {
         renderer.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         renderer.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive     = true
         
-        for i in 0..<10 {
-            renderer.createCircle(position: CGPoint(x: 100, y: i * 35 + 100), radius: radius)
-        }
+        physicsEngine = PhysicsEngine(renderer: renderer, width: view.frame.width)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
         
+        let location = touch.location(in: view).x
+        currentHandPosition = location
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        
+        let newHandPosition = touch.location(in: view).x
+        let offset = (newHandPosition - currentHandPosition) * 1.5
+        currentHandPosition = newHandPosition
+//        print(offset)
+//        print(currentHandPosition)
+        physicsEngine?.handleInput(offset)
     }
 }
 

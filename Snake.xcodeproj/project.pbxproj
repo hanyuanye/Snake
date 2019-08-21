@@ -15,6 +15,11 @@
 		3D10ECA022CD6983000E1C65 /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3D10EC9F22CD6983000E1C65 /* Shader.metal */; };
 		3D10ECA222CD6C23000E1C65 /* MetalCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D10ECA122CD6C23000E1C65 /* MetalCircleView.swift */; };
 		3D10ECA422CD7B8A000E1C65 /* GraphicsRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D10ECA322CD7B8A000E1C65 /* GraphicsRenderer.swift */; };
+		3D10ECA622CD987E000E1C65 /* PhysicsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D10ECA522CD987E000E1C65 /* PhysicsEngine.swift */; };
+		3D10ECA822CD9C82000E1C65 /* BaseRenderedObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D10ECA722CD9C82000E1C65 /* BaseRenderedObjectView.swift */; };
+		3D10ECAA22CD9F91000E1C65 /* MetalObstacleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D10ECA922CD9F91000E1C65 /* MetalObstacleView.swift */; };
+		3D45AEE622D14B3D002D5015 /* CGRect+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D45AEE522D14B3D002D5015 /* CGRect+extension.swift */; };
+		3D45AEE822D15842002D5015 /* MetalCirclePointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D45AEE722D15842002D5015 /* MetalCirclePointView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +33,11 @@
 		3D10EC9F22CD6983000E1C65 /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shader.metal; sourceTree = "<group>"; };
 		3D10ECA122CD6C23000E1C65 /* MetalCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalCircleView.swift; sourceTree = "<group>"; };
 		3D10ECA322CD7B8A000E1C65 /* GraphicsRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsRenderer.swift; sourceTree = "<group>"; };
+		3D10ECA522CD987E000E1C65 /* PhysicsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsEngine.swift; sourceTree = "<group>"; };
+		3D10ECA722CD9C82000E1C65 /* BaseRenderedObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRenderedObjectView.swift; sourceTree = "<group>"; };
+		3D10ECA922CD9F91000E1C65 /* MetalObstacleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalObstacleView.swift; sourceTree = "<group>"; };
+		3D45AEE522D14B3D002D5015 /* CGRect+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+extension.swift"; sourceTree = "<group>"; };
+		3D45AEE722D15842002D5015 /* MetalCirclePointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalCirclePointView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +72,13 @@
 			children = (
 				3D10EC8D22CD66BA000E1C65 /* AppDelegate.swift */,
 				3D10EC8F22CD66BA000E1C65 /* ViewController.swift */,
+				3D10ECA722CD9C82000E1C65 /* BaseRenderedObjectView.swift */,
+				3D10ECA522CD987E000E1C65 /* PhysicsEngine.swift */,
+				3D45AEE722D15842002D5015 /* MetalCirclePointView.swift */,
 				3D10ECA122CD6C23000E1C65 /* MetalCircleView.swift */,
+				3D10ECA922CD9F91000E1C65 /* MetalObstacleView.swift */,
 				3D10ECA322CD7B8A000E1C65 /* GraphicsRenderer.swift */,
+				3D45AEE522D14B3D002D5015 /* CGRect+extension.swift */,
 				3D10EC9F22CD6983000E1C65 /* Shader.metal */,
 				3D10EC9122CD66BA000E1C65 /* Main.storyboard */,
 				3D10EC9422CD66BB000E1C65 /* Assets.xcassets */,
@@ -144,9 +159,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D45AEE622D14B3D002D5015 /* CGRect+extension.swift in Sources */,
 				3D10ECA222CD6C23000E1C65 /* MetalCircleView.swift in Sources */,
 				3D10EC9022CD66BA000E1C65 /* ViewController.swift in Sources */,
+				3D45AEE822D15842002D5015 /* MetalCirclePointView.swift in Sources */,
+				3D10ECA622CD987E000E1C65 /* PhysicsEngine.swift in Sources */,
+				3D10ECA822CD9C82000E1C65 /* BaseRenderedObjectView.swift in Sources */,
 				3D10ECA422CD7B8A000E1C65 /* GraphicsRenderer.swift in Sources */,
+				3D10ECAA22CD9F91000E1C65 /* MetalObstacleView.swift in Sources */,
 				3D10EC8E22CD66BA000E1C65 /* AppDelegate.swift in Sources */,
 				3D10ECA022CD6983000E1C65 /* Shader.metal in Sources */,
 			);
